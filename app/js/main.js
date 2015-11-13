@@ -1,7 +1,129 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-"use strict";
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var config = function config($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise('/');
+
+  $stateProvider.state('root', {
+    abstract: true,
+    templateUrl: 'templates/layout.tpl.html'
+  }).state('root.course', {
+    url: '/',
+    views: {
+      sidebar: {
+        template: '<p>Sidebar</p>'
+      },
+      content: {
+        controller: 'CourseController',
+        templateUrl: 'templates/course.tpl.html'
+      },
+      footer: {
+        template: '<small>Footer</small>'
+      }
+    }
+  }).state('root.recipe', {
+    url: '/recipe/:recipeId',
+    views: {
+      content: {
+        controller: 'RecipeController',
+        templateUrl: 'templates/recipe.tpl.html'
+      }
+    }
+  }).state('root.add', {
+    url: '/add',
+    views: {
+      content: {
+        controller: 'AddController',
+        templateUrl: 'templates/add.tpl.html'
+      }
+    }
+  }).state('root.edit', {
+    url: '/edit/:recipeId',
+    views: {
+      content: {
+        controller: 'EditController',
+        templateUrl: 'templates/edit.tpl.html'
+      }
+    }
+  });
+};
+
+config.$inject = ['$stateProvider', '$urlRouterProvider'];
+
+exports['default'] = config;
+module.exports = exports['default'];
 
 },{}],2:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var AddController = function AddController($scope, RecipeService) {
+
+  $scope.addRecipe = function (obj) {
+    RecipeService.addRecipe(obj).then(function (res) {
+      $scope.recipe = {};
+    });
+  };
+};
+AddController.$inject = ['$scope', 'RecipeService'];
+exports['default'] = AddController;
+module.exports = exports['default'];
+
+},{}],3:[function(require,module,exports){
+"use strict";
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var EditController = function EditController($scope, $stateParams, RecipeService) {
+
+  RecipeService.getRecipe($stateParams.recipeId).then(function (res) {
+    $scope.singleRecipe = res.data;
+  });
+
+  $scope.updateRecipe = function (obj) {
+    RecipeService.update(obj).then(function (res) {
+      console.log(res);
+    });
+  };
+};
+EditController.$inject = ['$scope', '$stateParams', 'RecipeService'];
+exports['default'] = EditController;
+module.exports = exports['default'];
+
+},{}],5:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var RecipeController = function RecipeController($scope, $stateParams, RecipeService, $state) {
+
+  RecipeService.getRecipe($stateParams.recipeId).then(function (res) {
+    $scope.singleRecipe = res.data;
+  });
+
+  $scope.deleteMe = function (obj) {
+    RecipeService['delete'](obj).then(function (res) {
+      console.log(res);
+      $state.go('root.course');
+    });
+  };
+};
+RecipeController.$inject = ['$scope', '$stateParams', 'RecipeService', '$state'];
+exports['default'] = RecipeController;
+module.exports = exports['default'];
+
+},{}],6:[function(require,module,exports){
 'use strict';
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -16,12 +138,105 @@ var _config = require('./config');
 
 var _config2 = _interopRequireDefault(_config);
 
+var _controllersAddController = require('./controllers/add.controller');
+
+var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
+
+var _controllersCourseController = require('./controllers/course.controller');
+
+var _controllersCourseController2 = _interopRequireDefault(_controllersCourseController);
+
+var _controllersRecipeController = require('./controllers/recipe.controller');
+
+var _controllersRecipeController2 = _interopRequireDefault(_controllersRecipeController);
+
+var _controllersEditController = require('./controllers/edit.controller');
+
+var _controllersEditController2 = _interopRequireDefault(_controllersEditController);
+
+var _servicesRecipeService = require('./services/recipe.service');
+
+var _servicesRecipeService2 = _interopRequireDefault(_servicesRecipeService);
+
 //Creating a Module
-_angular2['default'].module('app', ['ui.router']);
+_angular2['default'].module('app', ['ui.router']).constant('PARSE', {
+  URL: 'https://api.parse.com/1/',
+  CONFIG: {
+    headers: {
+      'X-Parse-Application-Id': 'UlnlzzVbvXlbnPvPj7OhuH3Xf02jpZvJhNgOnzNa',
+      'X-Parse-REST-API-Key': 'JESNisz4oAzhiCs53PqbXOXNSTXlnjPBHobYadI4'
+    }
+  }
+}).config(_config2['default']).controller('AddController', _controllersAddController2['default']).controller('CourseController', _controllersCourseController2['default']).controller('RecipeController', _controllersRecipeController2['default']).controller('EditController', _controllersEditController2['default']).service('RecipeService', _servicesRecipeService2['default']);
 
 console.log('Hello, World');
 
-},{"./config":1,"angular":5,"angular-ui-router":3}],3:[function(require,module,exports){
+},{"./config":1,"./controllers/add.controller":2,"./controllers/course.controller":3,"./controllers/edit.controller":4,"./controllers/recipe.controller":5,"./services/recipe.service":7,"angular":10,"angular-ui-router":8}],7:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var RecipeService = function RecipeService($http, PARSE) {
+
+  var url = PARSE.URL + 'classes/recipe';
+
+  var checkAuth = function checkAuth() {
+    return true;
+  };
+
+  this.getRecipes = function () {
+    if (checkAuth()) {
+      return $http({
+        url: url,
+        headers: PARSE.CONFIG.headers,
+        method: 'GET',
+        cache: true
+      });
+    }
+  };
+
+  this.getRecipe = function (recipeId) {
+    if (checkAuth()) {
+      return $http({
+        method: 'GET',
+        url: url + '/' + recipeId,
+        headers: PARSE.CONFIG.headers,
+        cache: true
+      });
+    }
+  };
+
+  var Recipe = function Recipe(obj) {
+    this.title = obj.title;
+    this.photo = obj.photo;
+    this.value = obj.value;
+    this.serving = obj.serving;
+    this['yield'] = obj['yield'];
+    this.ingredients = obj.ingredients;
+    this.instructions = obj.instructions;
+    this.notes = obj.notes;
+  };
+
+  this.addRecipe = function (obj) {
+    var r = new Recipe(obj);
+    return $http.post(url, r, PARSE.CONFIG);
+  };
+
+  this.update = function (obj) {
+    return $http.put(url + '/' + obj.objectId, obj, PARSE.CONFIG);
+  };
+
+  this['delete'] = function (obj) {
+    return $http['delete'](url + '/' + obj.objectId, PARSE.CONFIG);
+  };
+};
+RecipeService.$inject = ['$http', 'PARSE'];
+
+exports['default'] = RecipeService;
+module.exports = exports['default'];
+
+},{}],8:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.15
@@ -4392,7 +4607,7 @@ angular.module('ui.router.state')
   .filter('isState', $IsStateFilter)
   .filter('includedByState', $IncludedByStateFilter);
 })(window, window.angular);
-},{}],4:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -33297,11 +33512,11 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],5:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":4}]},{},[2])
+},{"./angular":9}]},{},[6])
 
 
 //# sourceMappingURL=main.js.map

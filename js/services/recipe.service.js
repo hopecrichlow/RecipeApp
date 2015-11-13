@@ -17,7 +17,7 @@ let RecipeService = function($http, PARSE) {
     }
   };
 
-  this.getRecipe = function (whiskeyId) {
+  this.getRecipe = function (recipeId) {
     if (checkAuth()){      
       return $http({
         method: 'GET',
