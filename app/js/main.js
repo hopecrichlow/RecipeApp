@@ -76,7 +76,20 @@ exports['default'] = AddController;
 module.exports = exports['default'];
 
 },{}],3:[function(require,module,exports){
-"use strict";
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var CourseController = function CourseController($scope, RecipeService) {
+
+  RecipeService.getRecipes().then(function (res) {
+    $scope.recipes = res.data.results;
+  });
+};
+CourseController.$inject = ['$scope', 'RecipeService'];
+exports['default'] = CourseController;
+module.exports = exports['default'];
 
 },{}],4:[function(require,module,exports){
 'use strict';
