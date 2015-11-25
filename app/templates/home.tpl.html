@@ -1,0 +1,7 @@
+<h3> My Recipes</h3>
+
+<ul>
+  <li ng-repeat="recipe in recipes">
+    <a href="#/recipe/{{ recipe.objectId }}">{{ recipe.title }} from {{ recipe.value }}</a>
+  </li>
+</ul>
