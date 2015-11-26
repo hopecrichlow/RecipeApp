@@ -10,21 +10,19 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('root.course', {
       url: '/',
       views: {
-        sidebar: {
-          template: '<p>Sidebar</p>'
-        },
         content: {
           controller: 'CourseController',
           templateUrl: 'templates/course.tpl.html'
-        },
-        footer: {
-          template: '<small>Footer</small>'
         }
       }
     })
     .state('root.recipe', {
       url: '/recipe/:recipeId',
       views: {
+        title: {
+          controller: 'RecipeController',
+          templateUrl: 'templates/general.info.tpl.html'
+        },
         sidebar: {   
           controller: 'RecipeController',
           templateUrl: 'templates/ingredients.tpl.html'
@@ -32,6 +30,11 @@ let config = function($stateProvider, $urlRouterProvider) {
         content: {       
           controller: 'RecipeController',
           templateUrl: 'templates/recipe.tpl.html'
+        },
+        footer: {
+          controller: 'RecipeController',
+          template: 
+            '<hr><footer><a href="#/edit/{{ singleRecipe.objectId }}">Edit Me</a> | <a href="#" ng-click="deleteMe(singleRecipe)">Delete Me</a></footer>'
         }
       }
     })

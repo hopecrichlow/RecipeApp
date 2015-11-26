@@ -1,17 +1,48 @@
 // Put any @imports here
 // See Readme for a list of supported ones
+@import "bourbon";
+@import "neat";
 @import "foundation";
 
+
 body {
+  
+  width: 100%;
   background: #e2ebf3;
 }
-ul {
-  margin: 0px;
+
+.title {
+  // width: 80%;
+  margin: auto;
+  text-align: center;
+  span {
+    padding: 10px;
+  }
+}
+
+.recipe {
+  @include outer-container;
+  max-width: 80%;
+  margin: 20px auto;
+  h3 {
+    text-align: center;
+  }
   li {
     list-style: none;
   }
+  .ingredients {
+    @include span-columns(4);
+    ul {
+      
+    }
+  }
+  .instructions {
+    @include span-columns(8);
+    @include omega();
+  }
 }
-.container {
-  width: 450px;
-  margin: auto;
+
+footer {
+  @include span-columns(12);
+  text-align: center;
 }

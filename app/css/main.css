@@ -1,3 +1,9 @@
+html {
+  box-sizing: border-box; }
+
+*, *::after, *::before {
+  box-sizing: inherit; }
+
 meta.foundation-version {
   font-family: "/5.5.3/"; }
 
@@ -6388,15 +6394,53 @@ th.hide-for-touch {
     display: table-cell !important; } }
 
 body {
+  width: 100%;
   background: #e2ebf3; }
 
-ul {
-  margin: 0px; }
-  ul li {
-    list-style: none; }
+.title {
+  margin: auto;
+  text-align: center; }
+  .title span {
+    padding: 10px; }
 
-.container {
-  width: 450px;
-  margin: auto; }
+.recipe {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  margin: 20px auto; }
+  .recipe:before, .recipe:after {
+    content: " ";
+    display: table; }
+  .recipe:after {
+    clear: both; }
+  .recipe h3 {
+    text-align: center; }
+  .recipe li {
+    list-style: none; }
+  .recipe .ingredients {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 31.76157%; }
+    .recipe .ingredients:last-child {
+      margin-right: 0; }
+  .recipe .instructions {
+    float: left;
+    display: block;
+    margin-right: 2.35765%;
+    width: 65.88078%;
+    margin-right: 0; }
+    .recipe .instructions:last-child {
+      margin-right: 0; }
+
+footer {
+  float: left;
+  display: block;
+  margin-right: 2.35765%;
+  width: 100%;
+  text-align: center; }
+  footer:last-child {
+    margin-right: 0; }
 
 /*# sourceMappingURL=main.css.map */

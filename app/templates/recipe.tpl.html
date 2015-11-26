@@ -1,28 +1,20 @@
-<h1>{{ singleRecipe.title }}</h1>
-
-<p> PointsPlus™ value | {{ singleRecipe.value }} per serving</p>
-<p> Yields {{ singleRecipe.yield }} total</p>
-<p> Makes {{ singleRecipe.serving }}, {{ singleRecipe.servingSize }} servings</p>
-
-
-
-
 <ul>
+  <h3>Instructions</h3>
   <li> {{ singleRecipe.step1 }} </li>
+  <br>
   <li> {{ singleRecipe.step2 }} </li>
+  <br>
   <li> {{ singleRecipe.step3 }} </li>
+  <br>
   <li> {{ singleRecipe.step4 }} </li>
+  <br>
   <li> {{ singleRecipe.step5 }} </li>
+  <br>
   <li> {{ singleRecipe.step6 }} </li>
+  <br>
+  <br>
   <li> 
-       {{ singleRecipe.tip }}: 
-       <br> 
+       <h3>{{ singleRecipe.tip }}</h3> 
        {{ singleRecipe.notes }} 
   </li>
 </ul>
-
-
-<hr>
-
-<a href="#/edit/{{ singleRecipe.objectId }}">Edit Me</a> | 
-<a href="#" ng-click="deleteMe(singleRecipe)">Delete Me</a>

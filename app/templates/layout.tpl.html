@@ -1,7 +1,7 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#/">Parse Data</a></h1>
+      <h1><a href="#/">Deliciousness</a></h1>
     </li>
   </ul>
   <section class="top-bar-section">
@@ -12,9 +12,10 @@
   </section>
 </nav>
 
-
-<aside class="sidebar" ui-view="sidebar"></aside>
-
-<section class="container" ui-view="content"></section>
+<section class="title" ui-view="title"></section>
+<div class="recipe">
+  <section class="ingredients" ui-view="sidebar"></section>
+  <section class="instructions" ui-view="content"></section>
+</div>
 
 <footer ui-view="footer"></footer>
