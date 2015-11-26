@@ -1,12 +1,57 @@
 <h2>Editing...</h2>
 
 <form ng-submit="updateRecipe(singleRecipe)">
-  <span>Title</span><input ng-model="singleRecipe.title">
-  <span>PointsPlus™ value |</span><input ng-model="singleRecipe.value">
-  <span>Servings</span><input ng-model="singleRecipe.serving">
-  <span>Yields </span><input ng-model="singleRecipe.yield">
-  <span>Ingredients</span><input ng-model="singleRecipe.ingredients">
-  <span>Instructions</span><input ng-model="singleRecipe.instructions">
-  <span>Notes</span><input ng-model="singleRecipe.notes">
+  <p>
+    <span>Title</span>
+    <input ng-model="singleRecipe.title">
+  </p>
+  <p>
+    <span>PointsPlus™ value |</span>
+    <input ng-model="singleRecipe.value">
+  </p>  
+  <p>
+    <span>Servings</span>
+    <input placeholder="Servings" ng-model="recipe.serving">
+  </p>
+  <p>
+    <span>Serving Size</span>
+    <input ng-model="singleRecipe.servingSize">
+  </p>
+  <p>
+    <span>Yields</span>
+    <input ng-model="singleRecipe.yield">
+  </p>
+  <p>
+    <span>Ingredients</span>
+    <input ng-model="singleRecipe.ingredient1">
+    <input ng-model="singleRecipe.ingredient2">
+    <input ng-model="singleRecipe.ingredient3">
+    <input ng-model="singleRecipe.ingredient4">
+    <input ng-model="singleRecipe.ingredient5">
+    <input ng-model="singleRecipe.ingredient6">
+    <input ng-model="singleRecipe.ingredient8">
+    <input ng-model="singleRecipe.ingredient9">
+    <input ng-model="singleRecipe.ingredient10">
+    <input ng-model="singleRecipe.ingredient11">
+    <input ng-model="singleRecipe.ingredient12">
+  </p>
+  <p>
+    <span>Instructions</span>
+    <input ng-model="singleRecipe.step1">
+    <input ng-model="singleRecipe.step2">
+    <input ng-model="singleRecipe.step3">
+    <input ng-model="singleRecipe.step4">
+    <input ng-model="singleRecipe.step5">
+    <input ng-model="singleRecipe.step6">
+    <input ng-model="singleRecipe.step7">
+    <input ng-model="singleRecipe.step8">
+    <input ng-model="singleRecipe.step9">
+    <input ng-model="singleRecipe.step10">
+  </p>
+  <p>
+    <span>Notes</span>
+    <input ng-model="singleRecipe.tip">
+    <input ng-model="singleRecipe.notes">
+  </p>
   <button>Update</button>
 </form>

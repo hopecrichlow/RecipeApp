@@ -25,6 +25,10 @@ let config = function($stateProvider, $urlRouterProvider) {
     .state('root.recipe', {
       url: '/recipe/:recipeId',
       views: {
+        sidebar: {   
+          controller: 'RecipeController',
+          templateUrl: 'templates/ingredients.tpl.html'
+        },
         content: {       
           controller: 'RecipeController',
           templateUrl: 'templates/recipe.tpl.html'

@@ -1,12 +1,25 @@
-<h3>{{ singleRecipe.title }}</h3>
+<h1>{{ singleRecipe.title }}</h1>
 
 <p> PointsPlus™ value | {{ singleRecipe.value }} per serving</p>
-<p> Makes {{ singleRecipe.serving }} servings</p>
 <p> Yields {{ singleRecipe.yield }} total</p>
+<p> Makes {{ singleRecipe.serving }}, {{ singleRecipe.servingSize }} servings</p>
 
-<p> {{ singleRecipe.ingredients }} </p>
-<p> {{ singleRecipe.instructions }} </p>
-<p> {{ singleRecipe.notes }} </p>
+
+
+
+<ul>
+  <li> {{ singleRecipe.step1 }} </li>
+  <li> {{ singleRecipe.step2 }} </li>
+  <li> {{ singleRecipe.step3 }} </li>
+  <li> {{ singleRecipe.step4 }} </li>
+  <li> {{ singleRecipe.step5 }} </li>
+  <li> {{ singleRecipe.step6 }} </li>
+  <li> 
+       {{ singleRecipe.tip }}: 
+       <br> 
+       {{ singleRecipe.notes }} 
+  </li>
+</ul>
 
 
 <hr>

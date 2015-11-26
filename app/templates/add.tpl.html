@@ -1,12 +1,49 @@
 <h3>Add</h3>
 
 <form ng-submit="addRecipe(recipe)">
-  <input placeholder="Title" ng-model="recipe.title">
-  <input placeholder="PointsPlus Value" ng-model="recipe.value">
-  <input placeholder="Serving Size" ng-model="recipe.serving">
-  <input placeholder="How Much Does The Recipe Yield?" ng-model="recipe.yield">
-  <input placeholder="Ingredients" ng-model="recipe.ingredients">
-  <input placeholder="Instructions" ng-model="recipe.instructions">
-  <input placeholder="Notes" ng-model="recipe.notes">
+  <li>
+    <input placeholder="Title" ng-model="recipe.title">
+  </li>
+  <li>
+    <input placeholder="PointsPlus Value" ng-model="recipe.value">
+  </li>
+  <li>
+    <input placeholder="How Many Servings?" ng-model="recipe.serving">
+  </li>
+  <li>
+    <input placeholder="Serving Size" ng-model="recipe.servingSize">
+  </li>
+  <li>
+    <input placeholder="How Much Does The Recipe Yield?" ng-model="recipe.yield">
+  </li>
+  <li>
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient1">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient2">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient3">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient4">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient5">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient6">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient8">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient9">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient10">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient11">
+    <input placeholder="Ingredient" ng-model="singleRecipe.ingredient12">
+  </li>
+  <li>
+    <input placeholder="Step 1" ng-model="singleRecipe.step1">
+    <input placeholder="Step 2" ng-model="singleRecipe.step2">
+    <input placeholder="Step 3" ng-model="singleRecipe.step3">
+    <input placeholder="Step 4" ng-model="singleRecipe.step4">
+    <input placeholder="Step 5" ng-model="singleRecipe.step5">
+    <input placeholder="Step 6" ng-model="singleRecipe.step6">
+    <input placeholder="Step 7" ng-model="singleRecipe.step7">
+    <input placeholder="Step 8" ng-model="singleRecipe.step8">
+    <input placeholder="Step 9" ng-model="singleRecipe.step9">
+    <input placeholder="Step 10" ng-model="singleRecipe.step10">
+  </li>
+  <li>
+    <input placeholder="Tip" ng-model="recipe.tip">
+    <input placeholder="Notes" ng-model="recipe.notes">
+  </li>
   <button>Add</button>
 </form>

@@ -6390,6 +6390,11 @@ th.hide-for-touch {
 body {
   background: #e2ebf3; }
 
+ul {
+  margin: 0px; }
+  ul li {
+    list-style: none; }
+
 .container {
   width: 450px;
   margin: auto; }

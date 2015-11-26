@@ -5,7 +5,12 @@
 body {
   background: #e2ebf3;
 }
-
+ul {
+  margin: 0px;
+  li {
+    list-style: none;
+  }
+}
 .container {
   width: 450px;
   margin: auto;
