@@ -53,5 +53,6 @@
     <input ng-model="singleRecipe.tip">
     <input ng-model="singleRecipe.notes">
   </p>
-  <button>Update</button>
+
+  <button><a href="#/recipe/{{ singleRecipe.objectId }}" ng-click="updateRecipe(singleRecipe)">Update</a></button>
 </form>

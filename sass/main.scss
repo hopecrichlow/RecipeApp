@@ -6,14 +6,30 @@
 
 
 body {
-  
   width: 100%;
   background: #e2ebf3;
 }
-
+.content {
+  list-style: none;
+  h3 {
+    text-align: center;
+  }
+}
+.recipe-collection {
+  @include outer-container;
+  margin-top: 50px;
+  li {
+    @include span-columns(3);
+    @include omega(4n);
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+  }
+}
 .title {
-  // width: 80%;
   margin: auto;
+  margin-bottom: 30px;
   text-align: center;
   span {
     padding: 10px;
@@ -40,6 +56,12 @@ body {
     @include span-columns(8);
     @include omega();
   }
+}
+
+.add {
+  @include span-columns(8);
+  @include omega();
+  @include shift(2);
 }
 
 footer {

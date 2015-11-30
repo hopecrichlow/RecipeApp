@@ -7,7 +7,7 @@ let RecipeController = function($scope, $stateParams, RecipeService, $state) {
   $scope.deleteMe = function (obj) {
     RecipeService.delete(obj).then( (res) => {
       console.log(res);
-      $state.go('root.course');
+      $state.go('root.home');
     });
   };
 

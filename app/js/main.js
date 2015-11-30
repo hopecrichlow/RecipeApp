@@ -11,12 +11,12 @@ var config = function config($stateProvider, $urlRouterProvider) {
   $stateProvider.state('root', {
     abstract: true,
     templateUrl: 'templates/layout.tpl.html'
-  }).state('root.course', {
+  }).state('root.home', {
     url: '/',
     views: {
       content: {
-        controller: 'CourseController',
-        templateUrl: 'templates/course.tpl.html'
+        controller: 'HomeController',
+        templateUrl: 'templates/home.tpl.html'
       }
     }
   }).state('root.recipe', {
@@ -26,13 +26,13 @@ var config = function config($stateProvider, $urlRouterProvider) {
         controller: 'RecipeController',
         templateUrl: 'templates/general.info.tpl.html'
       },
-      sidebar: {
+      ingredients: {
         controller: 'RecipeController',
         templateUrl: 'templates/ingredients.tpl.html'
       },
-      content: {
+      instructions: {
         controller: 'RecipeController',
-        templateUrl: 'templates/recipe.tpl.html'
+        templateUrl: 'templates/instructions.tpl.html'
       },
       footer: {
         controller: 'RecipeController',
@@ -87,22 +87,6 @@ module.exports = exports['default'];
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
-var CourseController = function CourseController($scope, RecipeService) {
-
-  RecipeService.getRecipes().then(function (res) {
-    $scope.recipes = res.data.results;
-  });
-};
-CourseController.$inject = ['$scope', 'RecipeService'];
-exports['default'] = CourseController;
-module.exports = exports['default'];
-
-},{}],4:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
 var EditController = function EditController($scope, $stateParams, RecipeService) {
 
   RecipeService.getRecipe($stateParams.recipeId).then(function (res) {
@@ -117,6 +101,22 @@ var EditController = function EditController($scope, $stateParams, RecipeService
 };
 EditController.$inject = ['$scope', '$stateParams', 'RecipeService'];
 exports['default'] = EditController;
+module.exports = exports['default'];
+
+},{}],4:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
+var HomeController = function HomeController($scope, RecipeService) {
+
+  RecipeService.getRecipes().then(function (res) {
+    $scope.recipes = res.data.results;
+  });
+};
+HomeController.$inject = ['$scope', 'RecipeService'];
+exports['default'] = HomeController;
 module.exports = exports['default'];
 
 },{}],5:[function(require,module,exports){
@@ -134,7 +134,7 @@ var RecipeController = function RecipeController($scope, $stateParams, RecipeSer
   $scope.deleteMe = function (obj) {
     RecipeService['delete'](obj).then(function (res) {
       console.log(res);
-      $state.go('root.course');
+      $state.go('root.home');
     });
   };
 };
@@ -161,9 +161,9 @@ var _controllersAddController = require('./controllers/add.controller');
 
 var _controllersAddController2 = _interopRequireDefault(_controllersAddController);
 
-var _controllersCourseController = require('./controllers/course.controller');
+var _controllersHomeController = require('./controllers/home.controller');
 
-var _controllersCourseController2 = _interopRequireDefault(_controllersCourseController);
+var _controllersHomeController2 = _interopRequireDefault(_controllersHomeController);
 
 var _controllersRecipeController = require('./controllers/recipe.controller');
 
@@ -186,11 +186,11 @@ _angular2['default'].module('app', ['ui.router']).constant('PARSE', {
       'X-Parse-REST-API-Key': 'JESNisz4oAzhiCs53PqbXOXNSTXlnjPBHobYadI4'
     }
   }
-}).config(_config2['default']).controller('AddController', _controllersAddController2['default']).controller('CourseController', _controllersCourseController2['default']).controller('RecipeController', _controllersRecipeController2['default']).controller('EditController', _controllersEditController2['default']).service('RecipeService', _servicesRecipeService2['default']);
+}).config(_config2['default']).controller('AddController', _controllersAddController2['default']).controller('HomeController', _controllersHomeController2['default']).controller('RecipeController', _controllersRecipeController2['default']).controller('EditController', _controllersEditController2['default']).service('RecipeService', _servicesRecipeService2['default']);
 
 console.log('Hello, World');
 
-},{"./config":1,"./controllers/add.controller":2,"./controllers/course.controller":3,"./controllers/edit.controller":4,"./controllers/recipe.controller":5,"./services/recipe.service":7,"angular":10,"angular-ui-router":8}],7:[function(require,module,exports){
+},{"./config":1,"./controllers/add.controller":2,"./controllers/edit.controller":3,"./controllers/home.controller":4,"./controllers/recipe.controller":5,"./services/recipe.service":7,"angular":10,"angular-ui-router":8}],7:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {

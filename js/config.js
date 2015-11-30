@@ -7,12 +7,12 @@ let config = function($stateProvider, $urlRouterProvider) {
       abstract: true,
       templateUrl: 'templates/layout.tpl.html'
     })
-    .state('root.course', {
+    .state('root.home', {
       url: '/',
       views: {
         content: {
-          controller: 'CourseController',
-          templateUrl: 'templates/course.tpl.html'
+          controller: 'HomeController',
+          templateUrl: 'templates/home.tpl.html'
         }
       }
     })
@@ -23,13 +23,13 @@ let config = function($stateProvider, $urlRouterProvider) {
           controller: 'RecipeController',
           templateUrl: 'templates/general.info.tpl.html'
         },
-        sidebar: {   
+        ingredients: {   
           controller: 'RecipeController',
           templateUrl: 'templates/ingredients.tpl.html'
         },
-        content: {       
+        instructions: {       
           controller: 'RecipeController',
-          templateUrl: 'templates/recipe.tpl.html'
+          templateUrl: 'templates/instructions.tpl.html'
         },
         footer: {
           controller: 'RecipeController',

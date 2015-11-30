@@ -4,7 +4,7 @@ import 'angular-ui-router';
 import config from './config';
 
 import AddController from './controllers/add.controller';
-import CourseController from './controllers/course.controller';
+import HomeController from './controllers/home.controller';
 import RecipeController from './controllers/recipe.controller';
 import EditController from './controllers/edit.controller';
 
@@ -24,7 +24,7 @@ angular
   })
   .config(config)
   .controller('AddController', AddController)
-  .controller('CourseController', CourseController)
+  .controller('HomeController', HomeController)
   .controller('RecipeController', RecipeController)
   .controller('EditController', EditController)
   .service('RecipeService', RecipeService)

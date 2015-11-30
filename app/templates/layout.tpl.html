@@ -1,21 +1,22 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href="#/">Deliciousness</a></h1>
+      <h1><a href="#/">My Recipes</a></h1>
     </li>
   </ul>
   <section class="top-bar-section">
     <ul class="right">
-      <li><a href="#/">Home</a></li>
       <li><a href="#/add">Add</a></li>
     </ul>
   </section>
 </nav>
 
-<section class="title" ui-view="title"></section>
-<div class="recipe">
-  <section class="ingredients" ui-view="sidebar"></section>
-  <section class="instructions" ui-view="content"></section>
-</div>
+<section class="content" ui-view="content">
+  <section class="title" ui-view="title"></section>
+  <div class="recipe">
+    <section class="ingredients" ui-view="ingredients"></section>
+    <section class="instructions" ui-view="instructions"></section>
+  </div>
+</section>
 
 <footer ui-view="footer"></footer>
