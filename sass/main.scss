@@ -3,13 +3,37 @@
 @import "bourbon";
 @import "neat";
 @import "foundation";
+@import "font-awesome";
 
 
 body {
   width: 100%;
-  background: #e2ebf3;
+  background-image: url('../photos/GYEIFHUP3O.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 40% 20%;
+  background-attachment: fixed;
 }
+.top-bar{
+  background-image: url('../photos/GYEIFHUP3O.jpg');
+  @media only screen and (min-width: 40.0625em) {
+    background: transparent;
+    .name h1 a {
+      margin: 15px 0;
+      font-family: 'Cookie', cursive;
+      font-size: 55px;
+    }
+  }
+
+  i {
+    color: white;
+    margin: 15px;
+  }
+}
+
+
 .content {
+  margin: auto;
   list-style: none;
   h3 {
     text-align: center;
@@ -18,6 +42,7 @@ body {
 .recipe-collection {
   @include outer-container;
   margin-top: 50px;
+  padding: 15px;
   li {
     @include span-columns(3);
     @include omega(4n);
@@ -67,4 +92,5 @@ body {
 footer {
   @include span-columns(12);
   text-align: center;
+  bottom: 0;
 }

@@ -36,7 +36,7 @@ var config = function config($stateProvider, $urlRouterProvider) {
       },
       footer: {
         controller: 'RecipeController',
-        template: '<hr><footer><a href="#/edit/{{ singleRecipe.objectId }}">Edit Me</a> | <a href="#" ng-click="deleteMe(singleRecipe)">Delete Me</a></footer>'
+        template: '<footer><a href="#/edit/{{ singleRecipe.objectId }}">Edit Me</a> | <a href="#" ng-click="deleteMe(singleRecipe)">Delete Me</a></footer>'
       }
     }
   }).state('root.add', {
