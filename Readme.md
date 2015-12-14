@@ -1,7 +1,19 @@
-## Welcome to My Project
+## Welcome to Recipe App
 
-> I am your Readme.md file, you should probably update me.
+> View Project:
 
+##App Features
+
+-View the recipe collection 
+-Create a new recipe
+-Update or Delete a recipe
+
+#Possible Additions
+
+-Leaner add and edit features
+-User registration and login
+-A comments section
+-Photos
 
 ## Usage
 
