@@ -4,16 +4,16 @@
 
 ##App Features
 
--View the recipe collection 
--Create a new recipe
--Update or Delete a recipe
+- View the recipe collection 
+- Create a new recipe
+- Update or Delete a recipe
 
 #Possible Additions
 
--Leaner add and edit features
--User registration and login
--A comments section
--Photos
+- Leaner add and edit features
+- User registration and login
+- A comments section
+- Photos
 
 ## Usage
 
