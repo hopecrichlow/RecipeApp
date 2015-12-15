@@ -1,6 +1,6 @@
 ## Welcome to Recipe App
 
-> View Project:
+> View Project: http://my-recipes.surge.sh/
 
 ##App Features
 
